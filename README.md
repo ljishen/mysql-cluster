@@ -5,6 +5,12 @@
 This image is packaged with [NDB Cluster Programs](https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-programs.html) not found in the [official mysql-cluster image](https://hub.docker.com/r/mysql/mysql-cluster).
 
 
+How to Use the MySQL Cluster Image
+----------------------------------
+
+The instructions are the same as the official docker image. Please follow the instructions there: https://hub.docker.com/r/mysql/mysql-cluster
+
+
 ![logo](https://www.mysql.com/common/logos/logo-mysql-170x115.png)
 
 What is MySQL?
@@ -17,6 +23,4 @@ For more information and related downloads for MySQL Server and other MySQL prod
 Supported Tags and Respective Dockerfile Links
 ----------------------------------------------
 
--   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.20`, `latest`](Dockerfile)) ([Dockerfile](Dockerfile))
-
--   MySQL Cluster 8.0 is also available for AArch64 (ARM64), using the same tags.
+-   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.20`, `latest`](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile)) ([Dockerfile](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile))
