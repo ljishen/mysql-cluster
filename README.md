@@ -1,5 +1,5 @@
 # mysql-cluster
-![Docker Build Status](https://img.shields.io/docker/build/ljishen/mysql-cluster)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/ljishen/mysql-cluster)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/ljishen/mysql-cluster)
 ![GitHub](https://img.shields.io/github/license/ljishen/mysql-cluster)
 
@@ -14,6 +14,12 @@ What is MySQL?
 MySQL is the world's most popular open source database. With its proven performance, reliability, and ease-of-use, MySQL has become the leading choice of database for web applications of all sorts, ranging from personal websites and small online shops all the way to large-scale, high profile web operations like Facebook, Twitter, and YouTube.
 
 For more information and related downloads for MySQL Server and other MySQL products, please visit <http://www.mysql.com>.
+
+
+Supported Tags and Respective Dockerfile Links
+----------------------------------------------
+
+-   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.20`, `latest`](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile)) ([Dockerfile](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile))
 
 
 How to Use the MySQL Cluster Image
@@ -34,7 +40,7 @@ $ docker run -d --net=mysql-cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RAN
 
 ### Examine the Status of the Cluster
 ```bash
-$ docker run --rm -it --net=mysql-cluster ljishen/mysql-cluster ndb_mgm -e show
+$ docker run --rm --net=mysql-cluster ljishen/mysql-cluster ndb_mgm -e show
 [Entrypoint] MySQL Docker Image 8.0.20-1.1.16-cluster
 [Entrypoint] Starting ndb_mgm
 Connected to Management Server at: 192.168.0.2:1186
@@ -51,7 +57,7 @@ id=3    @192.168.0.10  (mysql-8.0.20 ndb-8.0.20)
 id=4 (not connected, accepting connect from 192.168.0.11)
 ```
 
-### MYSQL Login
+### MySQL Login
 ```bash
 $ docker exec -it mysql1 mysql -uroot -p"$(docker logs mysql1 2>&1 | grep -oP 'PASSWORD: \K.+')"
 mysql: [Warning] Using a password on the command line interface can be insecure.
@@ -126,9 +132,3 @@ last_name(last_name, first_name) - OrderedIndex
 
 NDBT_ProgramExit: 0 - OK
 ```
-
-
-Supported Tags and Respective Dockerfile Links
-----------------------------------------------
-
--   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.20`, `latest`](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile)) ([Dockerfile](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile))
