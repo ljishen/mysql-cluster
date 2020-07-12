@@ -15,8 +15,8 @@
 
 [ndbd default]
 NoOfReplicas=1
-DataMemory=80M
-IndexMemory=18M
+DataMemory=49152M
+ODirect=1
 
 
 [ndb_mgmd]
