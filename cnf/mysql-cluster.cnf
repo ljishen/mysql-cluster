@@ -15,12 +15,13 @@
 
 [ndbd default]
 NoOfReplicas=1
-DataMemory=65536M
+DataMemory=73728M
 DiskIOThreadPool=128
 DiskSyncSize=268435456
 MaxDiskWriteSpeed=268435456
 NoOfFragmentLogFiles=300
 ODirect=1
+MaxNoOfExecutionThreads=11
 
 
 [ndb_mgmd]
