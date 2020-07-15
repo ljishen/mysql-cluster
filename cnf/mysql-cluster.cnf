@@ -15,7 +15,7 @@
 
 [ndbd default]
 NoOfReplicas=1
-DataMemory=73728M
+DataMemory=20480M
 DiskIOThreadPool=128
 DiskSyncSize=268435456
 MaxDiskWriteSpeed=268435456
