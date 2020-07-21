@@ -18,10 +18,11 @@ NoOfReplicas=1
 DataMemory=20480M
 DiskIOThreadPool=128
 DiskSyncSize=268435456
-MaxDiskWriteSpeed=268435456
+MaxDiskWriteSpeed=2147483648
 NoOfFragmentLogFiles=300
 ODirect=1
-MaxNoOfExecutionThreads=11
+MaxNoOfExecutionThreads=64
+NoOfFragmentLogParts=32
 
 
 [ndb_mgmd]
