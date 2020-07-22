@@ -19,7 +19,7 @@ For more information and related downloads for MySQL Server and other MySQL prod
 Supported Tags and Respective Dockerfile Links
 ----------------------------------------------
 
--   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.20`, `latest`](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile)) ([Dockerfile](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile))
+-   MySQL Cluster 8.0, the latest GA (tag: [`8.0`, `8.0.21`, `latest`](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile)) ([Dockerfile](https://github.com/ljishen/mysql-cluster/blob/master/Dockerfile))
 
 
 How to Use the MySQL Cluster Image
