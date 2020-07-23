@@ -23,6 +23,7 @@ NoOfFragmentLogFiles=300
 ODirect=1
 MaxNoOfExecutionThreads=64
 NoOfFragmentLogParts=32
+MaxNoOfConcurrentScans=500
 
 
 [ndb_mgmd]
