@@ -41,19 +41,19 @@ $ docker run -d --net=mysql-cluster --name=mysql1 --ip=192.168.0.10 -e MYSQL_RAN
 ### Examine the Status of the Cluster
 ```bash
 $ docker run --rm --net=mysql-cluster ljishen/mysql-cluster ndb_mgm -e show
-[Entrypoint] MySQL Docker Image 8.0.20-1.1.16-cluster
+[Entrypoint] MySQL Docker Image 8.0.21-1.1.17-cluster
 [Entrypoint] Starting ndb_mgm
 Connected to Management Server at: 192.168.0.2:1186
 Cluster Configuration
 ---------------------
 [ndbd(NDB)]     1 node(s)
-id=2    @192.168.0.3  (mysql-8.0.20 ndb-8.0.20, Nodegroup: 0, *)
+id=2    @192.168.0.3  (mysql-8.0.21 ndb-8.0.21, Nodegroup: 0, *)
 
 [ndb_mgmd(MGM)] 1 node(s)
-id=1    @192.168.0.2  (mysql-8.0.20 ndb-8.0.20)
+id=1    @192.168.0.2  (mysql-8.0.21 ndb-8.0.21)
 
 [mysqld(API)]   2 node(s)
-id=3    @192.168.0.10  (mysql-8.0.20 ndb-8.0.20)
+id=3    @192.168.0.10  (mysql-8.0.21 ndb-8.0.21)
 id=4 (not connected, accepting connect from 192.168.0.11)
 ```
 
@@ -62,8 +62,8 @@ id=4 (not connected, accepting connect from 192.168.0.11)
 $ docker exec -it mysql1 mysql -uroot -p"$(docker logs mysql1 2>&1 | grep -oP 'PASSWORD: \K.+')"
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 55
-Server version: 8.0.20-cluster MySQL Cluster Community Server - GPL
+Your MySQL connection id is 11
+Server version: 8.0.21-cluster MySQL Cluster Community Server - GPL
 
 Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
@@ -95,7 +95,7 @@ CREATE TABLE dt_1 (
 
 ```bash
 $ docker run --rm --net=mysql-cluster --ip=192.168.0.11 ljishen/mysql-cluster ndb_desc -d test dt_1
-[Entrypoint] MySQL Docker Image 8.0.20-1.1.16-cluster
+[Entrypoint] MySQL Docker Image 8.0.21-1.1.17-cluster
 -- dt_1 --
 Version: 1
 Fragment type: HashMapPartition
@@ -105,7 +105,7 @@ Max load factor: 80
 Temporary table: no
 Number of attributes: 5
 Number of primary keys: 1
-Length of frm data: 1002
+Length of frm data: 1034
 Max Rows: 0
 Row Checksum: 1
 Row GCI: 1
@@ -119,13 +119,15 @@ ExtraRowAuthorBits: 0
 TableStatus: Retrieved
 Table options: readbackup
 HashMap: DEFAULT-HASHMAP-3840-1
+Tablespace id: 16
+Tablespace: ts_1
 -- Attributes --
 member_id Unsigned PRIMARY KEY DISTRIBUTION KEY AT=FIXED ST=MEMORY AUTO_INCR
 last_name Varchar(200;utf8mb4_0900_ai_ci) NOT NULL AT=SHORT_VAR ST=MEMORY
 first_name Varchar(200;utf8mb4_0900_ai_ci) NOT NULL AT=SHORT_VAR ST=MEMORY
 dob Date NOT NULL AT=FIXED ST=DISK
 joined Date NOT NULL AT=FIXED ST=DISK
--- Indexes -- 
+-- Indexes --
 PRIMARY KEY(member_id) - UniqueHashIndex
 PRIMARY(member_id) - OrderedIndex
 last_name(last_name, first_name) - OrderedIndex
