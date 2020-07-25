@@ -21,7 +21,12 @@ DiskSyncSize=268435456
 MaxDiskWriteSpeed=2147483648
 NoOfFragmentLogFiles=300
 ODirect=1
+
+# https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-ndbd-definition.html#ndbparam-ndbmtd-maxnoofexecutionthreads
+# number of threads by thread type:
+#   ldm:32	tc:16	send:7	recv:7
 MaxNoOfExecutionThreads=64
+
 NoOfFragmentLogParts=32
 MaxNoOfConcurrentScans=500
 
