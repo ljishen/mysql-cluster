@@ -25,7 +25,10 @@ ODirect=1
 # https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-ndbd-definition.html#ndbparam-ndbmtd-maxnoofexecutionthreads
 # number of threads by thread type:
 #   ldm:32	tc:16	send:7	recv:7
-MaxNoOfExecutionThreads=64
+#MaxNoOfExecutionThreads=64
+
+# https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-ndbd-definition.html#ndbparam-ndbmtd-threadconfig
+ThreadConfig=main={nosend=1},rep={nosend=1},ldm={count=32,nosend=1},tc={count=16,nosend=1},recv={count=7},send={count=7}
 
 NoOfFragmentLogParts=32
 MaxNoOfConcurrentScans=500
