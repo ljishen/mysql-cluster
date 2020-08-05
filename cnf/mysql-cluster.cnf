@@ -15,7 +15,7 @@
 
 [ndbd default]
 NoOfReplicas=1
-DataMemory=20480M
+DataMemory=12288M
 DiskIOThreadPool=128
 DiskSyncSize=268435456
 MaxDiskWriteSpeed=2147483648
@@ -24,13 +24,13 @@ ODirect=1
 
 # https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-ndbd-definition.html#ndbparam-ndbmtd-maxnoofexecutionthreads
 # number of threads by thread type:
-#   ldm:32	tc:16	send:7	recv:7
-#MaxNoOfExecutionThreads=64
+#   ldm:4	tc:2	send:1	recv:1
+#MaxNoOfExecutionThreads=10
 
 # https://dev.mysql.com/doc/refman/8.0/en/mysql-cluster-ndbd-definition.html#ndbparam-ndbmtd-threadconfig
-ThreadConfig=main={nosend=1},rep={nosend=1},ldm={count=32,nosend=1},tc={count=16,nosend=1},recv={count=7},send={count=7}
+ThreadConfig=main={nosend=1},rep={nosend=1},ldm={count=4,nosend=1},tc={count=2,nosend=1},recv={count=1},send={count=1}
 
-NoOfFragmentLogParts=32
+NoOfFragmentLogParts=4
 MaxNoOfConcurrentScans=500
 
 
